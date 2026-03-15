@@ -6,14 +6,45 @@ namespace EmployeeDirectoryManager
     public sealed class Employee
     {
         //Create the Class Variables dictated by the Assignment
+        public string Id { get; } 
+        public string FullName { get; } 
+        public string Department { get; } 
+        public string Role { get; } 
+        public double Salary { get; }
+        public DateTime HireDate { get; } 
 
-
-		//Take this overloaded constructor. Validate all inputs and throw exceptions
+        //Take this overloaded constructor. Validate all inputs and throw exceptions
         public Employee(string id, string fullName, string department, string role, double salary, DateTime hireDate)
         {
-			//Add Validaiton Here
+            //Add Validaiton Here
+
+            if (string.IsNullOrWhiteSpace(id)) 
+                throw new ArgumentException("Employee ID is required."); 
+
+            if (string.IsNullOrWhiteSpace(fullName)) 
+                throw new ArgumentException("Full name is required."); 
+
+            if (string.IsNullOrWhiteSpace(department)) 
+                throw new ArgumentException("Department is required."); 
+
+            if (string.IsNullOrWhiteSpace(role)) 
+                throw new ArgumentException("Role is required.");
+
+            if (salary < 0) 
+                throw new ArgumentException("Salary must be >= 0."); 
+
+            if (hireDate > DateTime.Today)
+                throw new ArgumentException("Hire date cannot be in the future.");
 
             //Assign Class Variables Here
+
+            Id = id;
+            FullName = fullName;
+            Department = department;
+            Role = role;
+            Salary = salary;
+            HireDate = hireDate;
+
         }
 
         public override string ToString()
