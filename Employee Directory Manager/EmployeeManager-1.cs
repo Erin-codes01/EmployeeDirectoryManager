@@ -32,16 +32,13 @@ namespace EmployeeDirectoryManager
 
             var existing = Employees.FirstOrDefault(emp => string.Equals(emp.Id, updated.Id, StringComparison.OrdinalIgnoreCase));
 
-            if (existing == null) // ADDED
+            if (existing == null) 
                 throw new InvalidOperationException("Employee not found.");
 
             //If not null, assign the employee variables here-
 
-            existing.FullName = updated.FullName; 
-            existing.Department = updated.Department;
-            existing.Role = updated.Role;
-            existing.Salary = updated.Salary;
-            existing.HireDate = updated.HireDate;
+            int index = Employees.IndexOf(existing);
+            Employees[index] = updated;
 
         }
 
@@ -49,10 +46,18 @@ namespace EmployeeDirectoryManager
         public bool RemoveEmployee(string id)
         {
             //Check if the Employee exists and store that result in a var
-			
-			//If the var is null, return false
-			
-			//If the var is not null, Remove the employee and return true
+
+            var existing = Employees.FirstOrDefault(emp => string.Equals(emp.Id, id, StringComparison.OrdinalIgnoreCase));
+
+            //If the var is null, return false
+
+            if (existing == null)
+                return false;
+
+            //If the var is not null, Remove the employee and return true
+
+            Employees.Remove(existing);
+            return true;
 
         }
 
