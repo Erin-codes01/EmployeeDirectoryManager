@@ -9,15 +9,20 @@ namespace EmployeeDirectoryManager
     public sealed class EmployeeManager
     {
         //Create a public binding list of Employee objects and initialize as new. It will need a get; method
-		
+
+        public BindingList<Employee> Employees { get; } = new BindingList<Employee>();
 
         // Add with validation (unique Id)
         public void AddEmployee(Employee e)
         {
             //Create an if statement to look for duplicate employees. Throw an exception if there is one
-			
-			//Then add the employee to the list
-			
+
+            if (Employees.Any(emp => string.Equals(emp.Id, e.Id, StringComparison.OrdinalIgnoreCase)))
+                throw new InvalidOperationException("Employee with this ID already exists.");
+
+            //Then add the employee to the list
+
+            Employees.Add(e);
         }
 
         // Update by Id (replace fields)
@@ -25,8 +30,18 @@ namespace EmployeeDirectoryManager
         {
             //Create a var and check the list for the Employee's Id. If the result is null, throw an exception.
 
-			
-			//If not null, assign the employee variables here-
+            var existing = Employees.FirstOrDefault(emp => string.Equals(emp.Id, updated.Id, StringComparison.OrdinalIgnoreCase));
+
+            if (existing == null) // ADDED
+                throw new InvalidOperationException("Employee not found.");
+
+            //If not null, assign the employee variables here-
+
+            existing.FullName = updated.FullName; 
+            existing.Department = updated.Department;
+            existing.Role = updated.Role;
+            existing.Salary = updated.Salary;
+            existing.HireDate = updated.HireDate;
 
         }
 
