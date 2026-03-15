@@ -139,5 +139,22 @@ namespace EmployeeDirectoryManager
                 dtpHireDate.Value = emp.HireDate;
             }
         }
+
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private TextBox textBox6;
+        private DateTimePicker dateTimePicker1;
+        private DataGridView dataGridView1;
+        private Label label1;
+        private Label label2;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
     }
 }
