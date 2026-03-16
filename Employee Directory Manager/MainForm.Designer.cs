@@ -92,7 +92,7 @@
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(8, 257);
+            lblStatus.Location = new Point(0, 206);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(78, 32);
             lblStatus.TabIndex = 5;
@@ -109,10 +109,10 @@
             // dgvEmployees
             // 
             dgvEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEmployees.Location = new Point(8, 301);
+            dgvEmployees.Location = new Point(8, 253);
             dgvEmployees.Name = "dgvEmployees";
             dgvEmployees.RowHeadersWidth = 82;
-            dgvEmployees.Size = new Size(480, 300);
+            dgvEmployees.Size = new Size(1111, 348);
             dgvEmployees.TabIndex = 7;
             // 
             // label1
@@ -133,6 +133,7 @@
             btnAdd.TabIndex = 9;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -142,6 +143,7 @@
             btnUpdate.TabIndex = 10;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -151,6 +153,7 @@
             btnDelete.TabIndex = 11;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnSave
             // 
@@ -160,6 +163,7 @@
             btnSave.TabIndex = 12;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnLoad
             // 
@@ -169,6 +173,7 @@
             btnLoad.TabIndex = 13;
             btnLoad.Text = "Load";
             btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
             // 
             // btnExit
             // 
@@ -178,6 +183,7 @@
             btnExit.TabIndex = 14;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // MainForm
             // 

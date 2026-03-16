@@ -27,8 +27,13 @@ namespace EmployeeDirectoryManager
             string dept = txtDepartment.Text.Trim();
             string role = txtRole.Text.Trim();
 
-            if (!double.TryParse(txtSalary.Text, out double salary))
+            if (!double.TryParse(txtSalary.Text.Trim(),
+                     System.Globalization.NumberStyles.Any,
+                     System.Globalization.CultureInfo.InvariantCulture,
+                     out double salary))
+            {
                 throw new Exception("Salary must be numeric.");
+            }
 
             DateTime hireDate = dtpHireDate.Value;
 
